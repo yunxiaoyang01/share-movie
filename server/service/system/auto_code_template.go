@@ -31,7 +31,7 @@ func (s *autoCodeTemplate) checkPackage(Pkg string, template string) (err error)
 		apiEnter := filepath.Join(global.GVA_CONFIG.AutoCode.Root, global.GVA_CONFIG.AutoCode.Server, "api", "v1", Pkg, "enter.go")
 		_, err = os.Stat(apiEnter)
 		if err != nil {
-			return fmt.Errorf("package结构异常,缺少api/v1/%s/enter.go", Pkg)
+			return fmt.Errorf("package结构异常,缺少api/v1/%s/enter.go, error:%+v", Pkg, err)
 		}
 		serviceEnter := filepath.Join(global.GVA_CONFIG.AutoCode.Root, global.GVA_CONFIG.AutoCode.Server, "service", Pkg, "enter.go")
 		_, err = os.Stat(serviceEnter)
